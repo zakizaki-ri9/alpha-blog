@@ -19,3 +19,52 @@ $navbar-default-bg: #08088A;
 .center {
   text-align: center;
 }
+
+.jumbotron {
+  background-image: asset-url('smork.jpg');
+  background-size: cover;
+  height: 600px;
+}
+
+.jumbotron h1 {
+  color: white;
+  text-align: center;
+  margin-bottom: 30px;
+  letter-spacing: -1px;
+  font-weight: bold;
+  text-shadow: black 2px 2px 0,black 2px 2px 0;
+}
+
+.btn-xlarge {
+  font-size: 1.7em;
+  background-color: black;
+}
+
+footer {
+  margin-top: 45px;
+  padding-top: 5px;
+  border-top: 1px solid #eaeaea;
+  color: #777;
+}
+
+footer a:hover {
+  color: #222;
+}
+
+footer small {
+  float: left;
+}
+
+footer nav {
+  float: right;
+}
+
+footer ul {
+  float: right;
+  list-style: none;
+}
+
+footer ul li {
+  float: right;
+  margin-left: 15px;
+}
