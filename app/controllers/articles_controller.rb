@@ -14,7 +14,11 @@ class ArticlesController < ApplicationController
   end
   
   def create
+    ## byebugによるコマンドラインデバッグ
+    # debugger
+
     @article = Article.new(article_params)
+    @article.user = User.first #Userの紐付け機能を実装するまでの暫定対処
     if @article.save
       # 記事の保存に成功
       flash[:success] = "Article was successfully created"
@@ -26,6 +30,9 @@ class ArticlesController < ApplicationController
   end
   
   def update
+    if @article.user.nil?
+      @article.user = User.first #Userの紐付け機能を実装するまでの暫定対処
+    end
     if @article.update(article_params)
       flash[:success] = "Article was successfully updated"
       redirect_to article_path(@article)
