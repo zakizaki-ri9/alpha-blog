@@ -3,6 +3,8 @@
 </h1>
 
 <div align="center" >
+  <!-- ページめくり用のコントロール -->
+  <%= will_paginate %>
   <% @users.each do |user| %>
     <ul class="listing">
       <div class="row">
@@ -20,4 +22,6 @@
       </div>  
     </ul>
   <% end %>
+  <!-- ページめくり用のコントロール -->
+  <%= will_paginate %>
 </div>

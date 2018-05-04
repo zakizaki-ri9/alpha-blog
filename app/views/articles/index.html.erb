@@ -2,4 +2,14 @@
   List all articles
 </h1>
 
+<!-- ページめくり用のコントロール -->
+<div align="center">
+  <%= will_paginate %>
+</div>
+
 <%= render 'article', obj: @articles %>
+
+<!-- ページめくり用のコントロール -->
+<div align="center">
+  <%= will_paginate %>
+</div>

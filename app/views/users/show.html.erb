@@ -12,4 +12,14 @@
   <%= @user.username %> 's articles
 </h4>
 
-<%= render 'articles/article', obj: @user.articles %>
+<!-- ページめくり用のコントロール -->
+<div align="center">
+  <%= will_paginate @user_articles %>
+</div>
+
+<%= render 'articles/article', obj: @user_articles %>
+
+<!-- ページめくり用のコントロール -->
+<div align="center">
+  <%= will_paginate @user_articles %>
+</div>

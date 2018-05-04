@@ -2,7 +2,12 @@ source 'https://rubygems.org'
 
 gem 'rails', '4.1.6'
 
+# consoleベースでのDebugを可能にするライブラリ
 gem 'bcrypt', '~> 3.1.7'
+
+# ページング処理を行うためのライブラリ
+gem 'will_paginate'
+gem 'bootstrap-will_paginate'
 
 gem 'bootstrap-sass', '~> 3.3.4'
 
