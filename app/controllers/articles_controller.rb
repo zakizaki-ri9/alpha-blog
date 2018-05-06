@@ -1,6 +1,8 @@
 class ArticlesController < ApplicationController
   
   before_action :set_article, only: [:edit, :update, :show, :destroy]
+  before_action :require_user, except: [:index, :show]
+  before_action :require_same_user, only: [:edit, :update, :destroy]
   
   def index
     # 5記事ずつ ページング処理
@@ -19,7 +21,7 @@ class ArticlesController < ApplicationController
     # debugger
 
     @article = Article.new(article_params)
-    @article.user = User.first #Userの紐付け機能を実装するまでの暫定対処
+    @article.user = current_user
     if @article.save
       # 記事の保存に成功
       flash[:success] = "Article was successfully created"
@@ -55,7 +57,16 @@ class ArticlesController < ApplicationController
     def set_article
       @article = Article.find(params[:id])
     end
+  
     def article_params
       params.require(:article).permit(:title, :description)
+    end
+  
+    # ログインユーザーと記事のユーザーが異なる場合は編集不可とする
+    def require_same_user
+      if !@article.user.nil? && current_user != @article.user
+        flash[:danger] = "Yout can only edit or delete your own articles"
+        redirect_to root_path
+      end
     end
 end
