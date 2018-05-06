@@ -34,7 +34,7 @@ class ArticlesController < ApplicationController
   
   def update
     if @article.user.nil?
-      @article.user = User.first #Userの紐付け機能を実装するまでの暫定対処
+      @article.user = current_user
     end
     if @article.update(article_params)
       flash[:success] = "Article was successfully updated"
@@ -64,7 +64,7 @@ class ArticlesController < ApplicationController
   
     # ログインユーザーと記事のユーザーが異なる場合は編集不可とする
     def require_same_user
-      if !@article.user.nil? && current_user != @article.user
+      if !@article.user.nil? && current_user != @article.user && !current_user.admin?
         flash[:danger] = "Yout can only edit or delete your own articles"
         redirect_to root_path
       end
