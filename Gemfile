@@ -20,15 +20,11 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0',          group: :doc
 
 gem 'spring',        group: :development
-
-# gem 'bcrypt', '~> 3.1.7'
-
-# gem 'unicorn'
+gem 'web-console', group: :development
 
 group :development, :test do
   gem 'sqlite3'
   gem 'byebug'
-  gem 'web-console', '~> 2.0'
 end
 
 group :production do
