@@ -26,7 +26,15 @@
     <strong>Description:</strong>
   </h4>
   <hr>
+  
+  <!-- simple_formatで文字列を加工（pタグ囲み、改行コードをbrタグに変更） -->
   <%= simple_format(@article.description) %>
+  
+  <!-- カテゴリの表示 -->
+  <% if @article.categories.any? %>
+    <p>Categories: <%= render @article.categories %></p>
+  <% end %>
+  
   <div class="article-actions">
     <% if logged_in? && (current_user == @article.user || current_user.admin?) %>
       <%= link_to "Edit this article", edit_article_path(@article), class: "btn btn-xs btn-primary" %>

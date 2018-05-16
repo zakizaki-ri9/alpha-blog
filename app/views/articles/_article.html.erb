@@ -16,6 +16,11 @@
         </div>
       </div>
       
+      <!-- カテゴリの表示 -->
+      <% if article.categories.any? %>
+        <p>Categories: <%= render article.categories %></p>
+      <% end %>
+      
       <!-- ログイン中かつログインと記事を書いたユーザーが一緒 or 管理者の場合のみ表示 -->
       <% if logged_in? && (current_user == article.user || current_user.admin?) %>
         <div class="article-actions">

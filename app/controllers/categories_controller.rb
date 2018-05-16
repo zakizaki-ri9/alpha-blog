@@ -21,6 +21,10 @@ class CategoriesController < ApplicationController
   end
   
   def show
+    @category = Category.find(params[:id])
+    
+    # カテゴリに紐づく記事一覧を取得
+    @category_articles = @category.articles.paginate(page: params[:page], per_page: 3)
   end
   
   private
