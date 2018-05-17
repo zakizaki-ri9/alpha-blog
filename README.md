@@ -7,4 +7,4 @@
 * カテゴリのCRUD
 
 ## 学習ソース
-[Udemy - The Complete Ruby on Rails Developer Course][https://www.udemy.com/the-complete-ruby-on-rails-developer-course/learn/v4/content]
+[Udemy - The Complete Ruby on Rails Developer Course](https://www.udemy.com/the-complete-ruby-on-rails-developer-course/learn/v4/content)
