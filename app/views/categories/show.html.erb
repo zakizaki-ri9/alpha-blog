@@ -2,8 +2,17 @@
   <%= "Category: " + @category.name %>
 </h1>
 
-<!-- ページめくり用のコントロール -->
 <div align="center">
+  
+  <!-- 管理者権限の場合のみカテゴリの編集を可能とする -->
+  <% if logged_in? && current_user.admin? %>
+    <div class="row">
+      <span class="badge">
+        <%= link_to "Edit Categery Name", edit_category_path(@category) %>
+      </span>
+    </div>
+  <% end %>
+        
   <!-- カテゴリに紐づく記事のリンクを表示 -->
   <%= will_paginate @category_articles %>
 </div>
